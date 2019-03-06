@@ -23,3 +23,56 @@ func Sum(a, b int) int {
 // 结构化的类型没有真正的值，可以用nil作为默认值
 // func FunctionName(a typea, b typeb) (t1 type1, t2 type2)
 // 类型转换 a := 5.0 b := int(a)
+// const PI = 3.14
+
+//const (
+//	a = iota iota=0, 新的一行使用时，自动加1
+//	b
+//	c
+//)
+
+//var a int 变量命名使用驼峰, 如果希望被外部包使用，那单词首字母也大写
+//var (
+//	a int
+//	b bool
+//	str sting
+//)
+
+//var a = 15  自动推断其类型， 全局
+//a := 1 声明局部变量
+
+// int, float, bool, string属于值类型， 指针, slices, maps, channel属于引用类型
+// 1e3 = 1000 e表示10的连乘
+// 格式化 %d 整数 %x 16进制表示的数字 %g 浮点数 %f 输出浮点数 %e 科学计数表示法
+// %0d 规定输出定长的整数 %n.mg 表示数字n并精确到小数点m位 %v 复数 %b 表示位
+// %c 输出字符 %U 输出U+hhhh的字符串
+
+//var cl complex64 = 5 + 10i 复数
+//字符只是整数的特殊用例,用双引号, \n 换行 \r 回车 \t tab键 \u Unicode字符 \\ 反斜杠自身
+// `` 非解释字符串
+
+// 字符串
+//strings.HasPrefix(s, prefix string)
+//strings.HasSuffix(s, suffix string)
+//strings.Contains(s, substr, string)
+//strings.Index(s, str string)
+//strings.LastIndex(s, str string)
+//strings.IndexRune(s string, ch int)
+//strings.Replace(str, old, new, n)
+//strings.Count(s, str string)
+//strings.Repeat(s, count int)
+//strings.ToUpper(s)
+//strings.TrimSpace(s)
+//strings.Split(s, sep)
+//Strings.Join(sl []string, sep string)
+//Strings.NewReader(str)
+//Strings.Read()
+//strconv.Itoa(i int)
+//strconv.FormatFloat(f float64, fmt byte, prec int, bitSize int)
+//strconv.Atoi(s string)
+//strconv.ParseFloat(s string, bitSize int) (f float64, err error)
+
+//指针， 能控制指针，但不能指针运算
+//var intP *int
+//intp = &il %p 指正格式化
+// 使用一个指针引用一个值时称为间接引用
