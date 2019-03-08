@@ -1,6 +1,8 @@
 package main // 指明文件属于哪个包， 根据惯例，每个目录只包含一个包
 
-import fm "fmt"
+import (
+	fm "fmt"
+)
 
 type (
 	IZ  int
@@ -91,3 +93,25 @@ func Sum(a, b int) int {
 //defer 延缓 允许我们进行一些函数执行完后的收尾工作
 // 匿名函数 fplus := func(x, y int) int {return x + y} fplus(3, 4)
 // 工厂函数 一个返回值为另一个函数的函数
+
+//数组 最长2GB var arr1 [5]int
+//for i,_ := range arr1 {}
+//var arrAge = [5]int{1, 2, 3}
+//var arrLazy = [...]int{5, 6, 7, 8}
+//var arr = [5]string{3: "chris", 4: "ron"}
+//var arr = [3][5]int
+//将一个大数组传递给函数会消耗很多内存， 1：传递数组的指针 2：使用数组的切片
+//切片相当于list，是一个长度可变的数组
+//var slice1 []type = arr1[:] slice1 = &arr1
+//s = s[:cap(s)] 扩展到它的大小上限
+//slice1 := make([]type, len)
+// new(T)为每个新的类型T分配一个内存，返回指针，适用于值类型
+// make(T)返回T的初始值，适用于引用类型：切片，map，channel
+
+//bytes var buffer bytes.Buffer var r *bytes.Buffer = new(bytes.Buffer)
+//slice1 := make([]type, start_length, capacity) 切片的初始长度， 容量
+//扩容 sl = sl[0:len(sl)+1]
+//x = append(x, y)
+//map = python中的字典
+//val1, isPresent = map[key1] 判断是否存在
+//获取一个map的切片，要使用两次make
