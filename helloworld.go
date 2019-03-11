@@ -115,3 +115,48 @@ func Sum(a, b int) int {
 //map = python中的字典
 //val1, isPresent = map[key1] 判断是否存在
 //获取一个map的切片，要使用两次make
+
+//结构体(ADT 抽象数据类型)
+//type identifier struct {
+//	field1 type1
+//	field2 type2
+//}
+//var t *T = new(T)
+//t := new(T)
+//type myStruct struct { i int}
+//var v myStruct v是结构体类型变量
+//var p *myStruct p是指向一个结构体类型变量的指针
+//ms := &struct1{10, 15.5, "wcg"} 或
+//var mt struct1  ms := struct1{10, 15.5, "wcg"}
+// new(Type) 和 &Type{} 是等价的
+//type Node struct { 链表
+//	data float64
+//	su   *Node
+//}
+//type Node struct { 双向链表
+//	pr   *Node
+//	data float64
+//	su   *Node
+//}
+//type Tree struct { 二叉树
+//	le   *Tree
+//	data float64
+//	ri   *Tree
+//}
+//结构体工厂，它返回一个指向结构体实例的指针，实例了类型的一个对象
+//type File struct {
+//	fd   int
+//	name string
+//}
+//func NewFile(fd int, name string) *File {
+//	if fd < 0 {
+//		return nil
+//	}
+//
+//	return &File(fd, name)
+//}
+//f := NewFile(10, "./test.txt")
+// make() slices/maps/channels new() struct
+
+//go语言的继承是通过内嵌和组合实现的，组合更受青睐
+//在一个结构体中对于每一种数据类型只能有一个匿名字段
