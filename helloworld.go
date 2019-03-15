@@ -170,3 +170,8 @@ func Sum(a, b int) int {
 // go 接口： 谁能搞定这件事，它就可以用在这儿
 // 类型断言
 //if v, ok := varl.(T); ok {}
+
+//运行时的异常 panic("A server error occurred")
+//if err != nil {
+//	panic("")
+//}
