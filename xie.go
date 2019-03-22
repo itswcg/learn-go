@@ -168,3 +168,39 @@ func SumAndProduct(a, b int) (add, mul int) {
     mul = a * b
     return
 }
+
+// 变参
+func myfunc(arg ...int) {
+	for _, n := range arg { // arg是一个int的切片
+		fmt.Printf(n)
+	}
+}
+
+// 传值和传指针，传值是值的一个copy，指针才会更改原值
+func add1(a int) int {
+	a = a + 1
+	return a
+}
+x := 3
+x1 := add1(x)
+x = 3
+
+func add2(a *int) int { // 仍是copy，只是copy的是一份指针
+	*a = *a + 1
+	return *a
+}
+
+x2 := add2(&x)
+x = 4
+
+// 传指针的好处
+// 能使多个函数操作同一个对象
+// 比较轻量级(8bytes)，只传内存地址，对于大的结构体，用指针可以减少很多的系统开销
+// channel, slice, map这三种类型实现机制类似指针，可以直接传递，而不用去地址后传递指针(如改slice的长度，仍需取地址传指针)
+
+//defer 添加多个defer，当函数执行到最后，这些defer会逆序执行， 比如打开文件，自动关闭
+func Read() {
+	file.Open("flie")
+	defer file.Close()
+}
+
