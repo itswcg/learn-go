@@ -204,3 +204,140 @@ func Read() {
 	defer file.Close()
 }
 
+// 函数可以作为值和类型
+
+//go中不能抛出异常，而是使用panic和recover机制
+
+// import
+import "./model" // 相对路径
+import "shorturl/model" // 绝对路径 gopath/src/shroturl/model
+
+import (
+    . "fmt" // 可以省略包名 Println("")
+)
+
+import (
+    f "fmt" // 别名 f.Prinln("")
+)
+
+import (
+    _ "github.com/..." // 引入该包，不直接使用，而是调用了该包的init函数
+)
+
+// 匿名字段
+type Human struct {
+    name string
+    age int
+    weight int
+}
+
+type Student struct {
+    Human
+    speciality string
+}
+
+makr := Student{Human{"mark", 25, 129}, "hhh"}
+
+// 面向对象，带有接收者的函数，成为method
+type Rectagle struct {
+    width, height float64
+}
+
+type Circle struct {
+    radius float64
+}
+
+func (r Rectagle) area() float64 {
+    return r.width * r.height
+}
+
+func (r Circle) area() float64 {
+    return
+}
+
+// struct只是自定义类型里一种特殊的类型
+type ages int
+type months map[string]int
+
+// method里的指针，go会自动识别
+// method可以继承和重写
+
+func (h *Human) SayHi() {
+    fmt.Printf("")
+}
+
+func (s *Student) SayHi() {
+    pass
+}
+
+// interface 是go中设计最精妙的
+// interface是一组method签名的组合，通过interface来定义对象的一组行为
+// interface定义了一组方法，如果某个对象实现了某个接口的所有方法，则此对象实现了此接口
+// interface可以被任意对象实现，一个对象可以实现任意多个interface，任何类型都实现了空interface
+// go通过interface实现鸭子模型
+
+type Men interface {
+    SayHi()
+    Sing(lyrics string)
+    Guzzle(beerStein string)
+}
+
+x := make([]Men, 3)
+x[0], x[1], x[2] = mkke, paul, sam
+
+for _, value := range x{
+    value.SayHi() // 接口定义的类型变量能存储支持的类型，相当一可以把实现了功能一样的类型可以放在一起。
+}
+
+// 一个函数把interface{}作为参数，那么他可以接受任意类型的值作为参数，如果返回一个interface{}，那么可以返回任意类型的值
+
+// interface 变量存储的值 value, ok = element.(T)
+
+type Element interface{}
+type List [] Element
+
+type Person struct {
+    name string
+    age int
+}
+
+func (p Person) String() string {
+    return
+}
+
+func inter() {
+    list := make(List, 3)
+    list[0] = 1
+    list[1] = "hello"
+    list[2] = Person{"wcg", 25}
+
+    for index, element := range list{
+        switch value := element.(type) {
+        case int:
+            fmt.Printf(int)
+        case string:
+            fmt.Printf(string)
+        case Person:
+            fmt.Printf(Person)
+        default:
+            fmt.Printf("different")
+        }
+    }
+}
+
+//interface真正厉害的是内嵌
+//用reflect实现反射，即检查程序在运行时的状态
+t := reflect.TypeOf(i) // 获取类型定义里的所有元素
+v := reflect.ValueOf(i) // 得到实际的值，还可以去改变
+
+var x float64 = 3.4
+p := reflect.ValueOf(&x)
+v := p.Elem()
+v.SetFloat(7.1)
+
+// 并发
+// goroutine, 协程，只占极少的栈内存，4~5k，通过runtime管理
+// go 关键字很容易实现并发，上面的多个协程运行在同一个进程中共享数据，不过设计时要使用通道来共享。
+// runtime.GOMAXPROCS(n) 设置cpu核数
+
+
